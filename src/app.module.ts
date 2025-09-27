@@ -4,8 +4,10 @@ import { DocentesModule } from './docentes/docentes.module';
 
 @Module({
   imports: [
-    // Conexión básica a MongoDB
-    MongooseModule.forRoot('mongodb://localhost:27017/docentes_db'),
+    // Conexión a MongoDB usando variable de entorno
+    MongooseModule.forRoot(
+      process.env.MONGODB_URI || 'mongodb://localhost:27017/docentes_db'
+    ),
     DocentesModule,
   ],
 })

@@ -17,7 +17,7 @@ export class Docente {
   @Prop()
   telefono: string;
 
-  // Campos opcionales por ahora
+  
   @Prop({ required: false })
   departamento?: string;
 

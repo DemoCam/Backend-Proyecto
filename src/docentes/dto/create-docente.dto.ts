@@ -1,21 +1,27 @@
-import { IsNotEmpty, IsEmail, IsOptional } from 'class-validator';
+import { IsNotEmpty, IsString, IsEmail, IsOptional } from 'class-validator';
 
 export class CreateDocenteDto {
-  @IsNotEmpty({ message: 'La cédula es requerida' })
+  @IsNotEmpty()
+  @IsString()
   cedula: string;
 
-  @IsNotEmpty({ message: 'El nombre completo es requerido' })
+  @IsNotEmpty()
+  @IsString()
   nombreCompleto: string;
 
-  @IsEmail({}, { message: 'El correo debe ser válido' })
+  @IsNotEmpty()
+  @IsEmail()
   correoElectronico: string;
 
-  @IsOptional()
-  telefono?: string;
+  @IsNotEmpty()
+  @IsString()
+  telefono: string;
 
   @IsOptional()
+  @IsString()
   departamento?: string;
 
   @IsOptional()
+  @IsString()
   tituloAcademico?: string;
 }
